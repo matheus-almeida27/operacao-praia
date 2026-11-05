@@ -3,45 +3,210 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#087f70">
-<title>Operação Praia 🏖️</title>
+<title>Os 4 Macacos — Operação Praia</title>
 <style>
-:root{--deep:#064e46;--teal:#087f70;--mint:#c9f4df;--sand:#fff0c8;--coral:#ff8068;--ink:#173b35}
-*{box-sizing:border-box}body{margin:0;min-height:100vh;color:var(--ink);font-family:ui-rounded,"Trebuchet MS",system-ui,sans-serif;background:linear-gradient(145deg,#a8ead0 0%,#d8f5dc 38%,#ffe9b4 100%);overflow-x:hidden}
-body:before,body:after{content:"";position:fixed;border-radius:50%;filter:blur(2px);z-index:-1;opacity:.35}body:before{width:360px;height:360px;background:#fff;top:-170px;right:-90px}body:after{width:280px;height:280px;background:#ff9b79;bottom:-150px;left:-80px}
-.wrap{width:min(1050px,92vw);margin:auto;padding:42px 0 56px}.hero{text-align:center;padding:38px 22px 30px;background:#ffffffa8;border:1px solid #ffffffb8;border-radius:30px;box-shadow:0 18px 50px #246c5030;backdrop-filter:blur(8px)}
-.kicker{font-weight:900;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);font-size:.76rem}.hero h1{font-size:clamp(2.6rem,8vw,5.5rem);line-height:.98;margin:12px 0;color:var(--deep);letter-spacing:-.06em}.hero p{font-size:1.1rem;margin:14px auto 0;max-width:600px}
-.count-label{margin:28px 0 12px;font-size:.8rem;letter-spacing:.16em;font-weight:900;text-transform:uppercase;color:var(--teal)}
-.countdown{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;max-width:650px;margin:auto}.time{background:var(--deep);color:white;border-radius:18px;padding:17px 8px;box-shadow:0 8px 18px #064e4630}.time strong{display:block;font-size:clamp(1.8rem,5vw,3rem);line-height:1;font-variant-numeric:tabular-nums}.time span{font-size:.7rem;letter-spacing:.13em;text-transform:uppercase;color:#b9f2d8}
-.section-title{text-align:center;margin:42px 0 18px;color:var(--deep);font-size:1.7rem}.crew{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.card{background:#ffffffd9;border:1px solid #fff;border-radius:24px;padding:24px;box-shadow:0 12px 30px #246c5020;position:relative;overflow:hidden}.card:after{content:"";position:absolute;width:120px;height:120px;border-radius:50%;background:#c9f4df70;right:-45px;top:-48px}.avatar{font-size:3.3rem;line-height:1}.card h2{margin:10px 0 4px;color:var(--deep);font-size:1.5rem}.role{font-weight:900;color:var(--coral);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase}.card p{line-height:1.55;margin:12px 0 16px;max-width:42ch}.tag{display:inline-block;background:var(--mint);color:var(--deep);padding:8px 12px;border-radius:999px;font-size:.76rem;font-weight:900;letter-spacing:.03em}
-.footer{text-align:center;padding:30px 10px 0;font-weight:800;color:var(--deep)}.sun{font-size:1.4rem}
-@media(max-width:620px){.wrap{padding-top:18px}.hero{padding:30px 14px}.countdown{gap:7px}.time{padding:14px 4px;border-radius:13px}.time span{font-size:.58rem}.crew{grid-template-columns:1fr}.card{padding:22px}}
+:root{--ink:#f7f3df;--muted:#b9c6b8;--lime:#d9ff72;--aqua:#69e5d0;--coral:#ff806e;--gold:#ffd36e;--panel:rgba(12,35,37,.78)}
+*{box-sizing:border-box} html{scroll-behavior:smooth}
+body{margin:0;min-height:100vh;color:var(--ink);font-family:ui-rounded,"Trebuchet MS",system-ui,sans-serif;background:#082b31;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;z-index:-3;background:linear-gradient(180deg,#092d36 0%,#11505a 43%,#e18a62 78%,#f5c77d 100%)}
+body:after{content:"";position:fixed;inset:0;z-index:-2;opacity:.17;background-image:radial-gradient(#fff 1px,transparent 1px);background-size:23px 23px;pointer-events:none}
+.sun{position:fixed;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,#ffe9a6 0 45%,#ffc66c 46% 65%,transparent 67%);top:7vh;right:8vw;filter:drop-shadow(0 0 55px #ffc66c88);z-index:-1;animation:sunpulse 5s ease-in-out infinite}
+@keyframes sunpulse{50%{transform:scale(1.06);filter:drop-shadow(0 0 75px #ffc66cbb)}}
+.wave{position:fixed;bottom:-55px;left:-10%;width:120%;height:190px;border-radius:50% 50% 0 0;background:#087b80;opacity:.65;z-index:-1;animation:wave 9s ease-in-out infinite alternate}
+.wave.two{bottom:-105px;background:#075a67;opacity:.8;animation-duration:12s}
+@keyframes wave{to{transform:translateX(4%) translateY(-15px) scaleY(1.12)}}
+.shell{width:min(1120px,92vw);margin:auto;padding:28px 0 55px}
+.topbar{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:1000;letter-spacing:.12em;font-size:.78rem;text-transform:uppercase}
+.brand-mark{width:42px;height:42px;border-radius:14px;background:var(--lime);color:#153b34;display:grid;place-items:center;font-size:24px;box-shadow:0 7px 0 #739b45}
+.actions{display:flex;gap:9px;flex-wrap:wrap}
+.btn{border:1px solid #ffffff44;background:#092f35aa;color:var(--ink);padding:10px 14px;border-radius:13px;font-weight:800;cursor:pointer;transition:.2s}
+.btn:hover{transform:translateY(-2px);background:#ffffff20}
+.hero{text-align:center;padding:48px 0 24px;position:relative}
+.eyebrow{display:inline-flex;gap:8px;align-items:center;border:1px solid #d9ff7277;background:#153e3b99;color:var(--lime);padding:8px 14px;border-radius:99px;font-size:.76rem;font-weight:900;letter-spacing:.16em;text-transform:uppercase}
+h1{font-size:clamp(2.8rem,8vw,6.6rem);line-height:.88;letter-spacing:-.075em;margin:23px 0 15px;text-transform:uppercase;text-shadow:0 7px 0 #07353b,0 12px 32px #001b22aa}
+h1 span{color:var(--lime);display:block}
+.subtitle{font-size:clamp(1rem,2vw,1.2rem);color:#f9e8c8;margin:0 auto;max-width:650px;line-height:1.5}
+.count-wrap{margin:30px auto 0;max-width:900px;background:linear-gradient(135deg,#092e34e8,#123e3edb);border:1px solid #ffffff35;border-radius:28px;padding:24px;box-shadow:0 24px 60px #00262b55,inset 0 1px #ffffff22;backdrop-filter:blur(12px)}
+.count-head{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.count-head strong{font-size:.9rem;letter-spacing:.12em;text-transform:uppercase;color:var(--aqua)}
+.target{font-size:.8rem;color:#d8e6d9}
+.timer{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.timebox{background:linear-gradient(180deg,#1b5554,#103b42);border:1px solid #ffffff25;border-radius:19px;padding:18px 8px 15px;box-shadow:inset 0 1px #ffffff20}
+.num{display:block;font-size:clamp(2rem,6vw,4.1rem);font-weight:1000;letter-spacing:-.06em;color:var(--lime);font-variant-numeric:tabular-nums;line-height:1}
+.unit{display:block;margin-top:8px;color:#c8e3d6;font-size:.72rem;text-transform:uppercase;letter-spacing:.18em;font-weight:900}
+.count-foot{margin:18px 0 0;color:#d9e7d8;font-size:.9rem}
+.count-foot b{color:var(--gold)}
+.section-title{display:flex;justify-content:space-between;align-items:end;gap:14px;margin:58px 0 18px}
+.section-title h2{font-size:clamp(1.7rem,4vw,2.7rem);margin:0;letter-spacing:-.05em}
+.section-title p{margin:0;color:#d3e6d8;font-size:.9rem}
+.monkeys{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.card{position:relative;overflow:hidden;background:var(--panel);border:1px solid #ffffff35;border-radius:24px;padding:18px 16px 20px;min-height:310px;box-shadow:0 18px 40px #00242a44;transition:.25s}
+.card:hover{transform:translateY(-7px) rotate(-.5deg);border-color:#d9ff7299}
+.card:before{content:"";position:absolute;width:170px;height:170px;right:-60px;top:-60px;border-radius:50%;background:var(--glow);opacity:.16}
+.avatar{height:155px;display:grid;place-items:center;position:relative}
+.monkey{width:148px;height:148px;overflow:visible;animation:bob 3s ease-in-out infinite;filter:drop-shadow(0 12px 8px #001e2488)}
+.card:nth-child(2) .monkey{animation-delay:.3s}.card:nth-child(3) .monkey{animation-delay:.7s}.card:nth-child(4) .monkey{animation-delay:1s}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-9px) rotate(2deg)}}
+.name{font-size:1.45rem;font-weight:1000;letter-spacing:-.04em;margin:5px 0 4px}
+.role{font-size:.7rem;text-transform:uppercase;letter-spacing:.15em;color:var(--lime);font-weight:900}
+.bio{font-size:.88rem;color:#d2e3d8;line-height:1.45;margin:11px 0 0}
+.tag{display:inline-block;margin-top:12px;border-radius:99px;padding:6px 10px;font-size:.72rem;font-weight:900;background:#ffffff18;color:#ffe2a5}
+.manifesto{margin:40px 0 0;border-radius:24px;padding:22px;background:linear-gradient(100deg,#d9ff72,#9de5a0);color:#153a34;display:flex;justify-content:space-between;align-items:center;gap:16px;box-shadow:0 12px 0 #65934f}
+.manifesto h3{margin:0;font-size:1.4rem;letter-spacing:-.04em}.manifesto p{margin:5px 0 0;font-size:.9rem}
+.stamp{font-size:2.6rem;transform:rotate(10deg)}
+.footer{text-align:center;color:#d5e5d9;font-size:.78rem;margin:36px 0 0}
+.toast{position:fixed;bottom:22px;left:50%;transform:translate(-50%,20px);background:#102f32;color:white;border:1px solid #ffffff44;padding:12px 18px;border-radius:14px;opacity:0;transition:.3s;pointer-events:none;box-shadow:0 10px 35px #001c22aa}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.confetti{position:fixed;top:-20px;width:8px;height:13px;z-index:9;pointer-events:none;animation:fall 3.2s linear forwards}
+@keyframes fall{to{transform:translateY(110vh) rotate(780deg);opacity:.1}}
+@media(max-width:850px){.monkeys{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:540px){.shell{width:94vw;padding-top:17px}.hero{padding-top:38px}.count-wrap{padding:15px}.timer{gap:6px}.timebox{padding:14px 4px}.unit{font-size:.6rem;letter-spacing:.1em}.monkeys{gap:9px}.card{padding:13px;min-height:290px}.avatar{height:130px}.monkey{width:128px;height:128px}.manifesto{align-items:flex-start}.stamp{font-size:2rem}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}}
 </style>
 </head>
 <body>
-<main class="wrap">
-<section class="hero">
-<div class="kicker">Missão oficial • verão 2026</div>
-<h1>Operação<br>Praia <span>🏖️</span></h1>
-<p>Quatro macacos, um destino e a contagem regressiva para fechar o ano com os pés na areia.</p>
-<div class="count-label">Faltam para 31 de dezembro de 2026</div>
-<div class="countdown" aria-live="polite">
-<div class="time"><strong id="days">000</strong><span>Dias</span></div>
-<div class="time"><strong id="hours">00</strong><span>Horas</span></div>
-<div class="time"><strong id="minutes">00</strong><span>Minutos</span></div>
-<div class="time"><strong id="seconds">00</strong><span>Segundos</span></div>
-</div>
-</section>
-<h2 class="section-title">A tropa está formada 🐒</h2>
-<section class="crew">
-<article class="card"><div class="avatar">🐒</div><h2>Renata</h2><div class="role">A máquina do treino</div><p>CrossFit na veia e energia de sobra. Se tem desafio, ela já está aquecida.</p><span class="tag">🏋️ CROSSFIT</span></article>
-<article class="card"><div class="avatar">🐵</div><h2>Jordano</h2><div class="role">O atleta do brinde</div><p>CrossFit e chopp: treina pesado, mas também sabe valorizar um brinde depois do WOD.</p><span class="tag">🏋️ CROSSFIT + CHOPP 🍺</span></article>
-<article class="card"><div class="avatar">🙈</div><h2>Matheus</h2><div class="role">O tranquilão</div><p>Curte um cigarrinho natural e aproveitar os momentos no seu próprio ritmo.</p><span class="tag">🌿 VIBE NATURAL</span></article>
-<article class="card"><div class="avatar">🙉</div><h2>Léo</h2><div class="role">O último romântico</div><p>Gosta de fumar um cigarro e valorizar seus interesses amorosos.</p><span class="tag">🚬 AMOR &amp; SOSSEGO</span></article>
-</section>
-<div class="footer"><div class="sun">☀️ 🌴 🍹</div>O destino é a praia. O resto é história.</div>
+<div class="sun"></div><div class="wave"></div><div class="wave two"></div>
+<main class="shell">
+  <header class="topbar">
+    <div class="brand"><span class="brand-mark">🐒</span><span>Clube dos 4 Macacos</span></div>
+    <div class="actions">
+      <button class="btn" id="soundBtn" type="button">🔇 Som: desligado</button>
+      <button class="btn" id="partyBtn" type="button">🎉 Ativar a bagunça</button>
+    </div>
+  </header>
+  <section class="hero">
+    <div class="eyebrow">☀️ Projeto verão · missão oficial</div>
+    <h1>Operação <span>Praia 31/12</span></h1>
+    <p class="subtitle">Quatro macacos. Um destino. Nenhuma maturidade prevista.<br>O litoral está chamando — e a tropa já está em contagem regressiva.</p>
+    <div class="count-wrap">
+      <div class="count-head"><strong>⏳ Falta pouco para a areia!</strong><span class="target" id="targetText">31 de dezembro de 2026 · 00:00</span></div>
+      <div class="timer" aria-live="polite">
+        <div class="timebox"><span class="num" id="days">000</span><span class="unit">Dias</span></div>
+        <div class="timebox"><span class="num" id="hours">00</span><span class="unit">Horas</span></div>
+        <div class="timebox"><span class="num" id="minutes">00</span><span class="unit">Minutos</span></div>
+        <div class="timebox"><span class="num" id="seconds">00</span><span class="unit">Segundos</span></div>
+      </div>
+      <p class="count-foot" id="countMessage">A missão está em andamento. <b>Preparem os chinelos.</b></p>
+    </div>
+  </section>
+  <section>
+    <div class="section-title"><div><h2>Conheça a tropa 🥥</h2><p>Quatro personalidades, um único surto coletivo.</p></div><p>ELENCO OFICIAL</p></div>
+    <div class="monkeys">
+      <article class="card" style="--glow:#ffd36e">
+        <div class="avatar">
+          <svg class="monkey" viewBox="0 0 160 160" role="img" aria-label="Macaco Léo com camisa tropical e colar">
+            <ellipse cx="80" cy="143" rx="47" ry="9" fill="#001d25" opacity=".3"/>
+            <path d="M45 105 Q30 130 44 147 L116 147 Q130 126 115 105Z" fill="#e7a64f"/>
+            <circle cx="37" cy="66" r="24" fill="#8b542e"/><circle cx="123" cy="66" r="24" fill="#8b542e"/>
+            <circle cx="37" cy="66" r="12" fill="#e9a96b"/><circle cx="123" cy="66" r="12" fill="#e9a96b"/>
+            <ellipse cx="80" cy="77" rx="52" ry="53" fill="#9b6035"/>
+            <ellipse cx="80" cy="91" rx="37" ry="29" fill="#efbd83"/>
+            <ellipse cx="62" cy="73" rx="6" ry="8" fill="#1d2522"/><ellipse cx="98" cy="73" rx="6" ry="8" fill="#1d2522"/>
+            <circle cx="64" cy="70" r="2" fill="white"/><circle cx="100" cy="70" r="2" fill="white"/>
+            <ellipse cx="80" cy="91" rx="8" ry="6" fill="#583322"/><path d="M69 103 Q80 113 92 102" fill="none" stroke="#75432a" stroke-width="3" stroke-linecap="round"/>
+            <path d="M53 119 L80 137 L107 119" fill="none" stroke="#f7d56c" stroke-width="5"/><circle cx="80" cy="137" r="6" fill="#fff0a6"/>
+            <path d="M47 34 Q80 13 113 34 L108 47 Q80 37 52 48Z" fill="#e9f2d0"/><path d="M60 34 Q80 23 100 34" fill="none" stroke="#ff806e" stroke-width="7"/>
+            <path d="M115 49 l12 -13" stroke="#fff0a6" stroke-width="4" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="name">Léo</div><div class="role">O último romântico</div>
+        <p class="bio">O último romântico: gosta de fumar um cigarro e valorizar seus interesses amorosos.</p>
+        <span class="tag">🚬 Amor & sossego</span>
+      </article>
+      <article class="card" style="--glow:#69e5d0">
+        <div class="avatar">
+          <svg class="monkey" viewBox="0 0 160 160" role="img" aria-label="Macaco Matheus com óculos escuros">
+            <ellipse cx="80" cy="143" rx="47" ry="9" fill="#001d25" opacity=".3"/>
+            <path d="M45 106 Q31 130 44 147 L116 147 Q129 130 115 106Z" fill="#4e9d9b"/>
+            <circle cx="37" cy="66" r="24" fill="#70452e"/><circle cx="123" cy="66" r="24" fill="#70452e"/><circle cx="37" cy="66" r="12" fill="#d99c6d"/><circle cx="123" cy="66" r="12" fill="#d99c6d"/>
+            <ellipse cx="80" cy="77" rx="52" ry="53" fill="#805238"/><ellipse cx="80" cy="94" rx="37" ry="27" fill="#e8b783"/>
+            <path d="M39 66 Q60 54 78 66 L78 83 Q58 91 41 80Z" fill="#172c34"/><path d="M82 66 Q103 54 121 66 L119 80 Q101 91 82 83Z" fill="#172c34"/><path d="M77 70 L83 70" stroke="#172c34" stroke-width="5"/>
+            <path d="M68 105 Q80 112 92 104" fill="none" stroke="#70432c" stroke-width="3" stroke-linecap="round"/>
+            <path d="M52 34 Q80 18 108 34" stroke="#d9ff72" stroke-width="8" fill="none" stroke-linecap="round"/>
+            <path d="M57 121 L80 138 L103 121" fill="none" stroke="#ffd36e" stroke-width="5"/><circle cx="80" cy="138" r="6" fill="#fff0a6"/>
+            <path d="M112 112 q17 -10 22 2" fill="none" stroke="#d9ff72" stroke-width="4" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="name">Matheus</div><div class="role">O naturalista da turma</div>
+        <p class="bio">Curte fumar um cigarrinho natural e aproveitar os momentos no seu próprio ritmo.</p>
+        <span class="tag">🌿 Paz & tranquilidade</span>
+      </article>
+      <article class="card" style="--glow:#ff806e">
+        <div class="avatar">
+          <svg class="monkey" viewBox="0 0 160 160" role="img" aria-label="Macaca Renata com faixa esportiva">
+            <ellipse cx="80" cy="143" rx="47" ry="9" fill="#001d25" opacity=".3"/>
+            <path d="M45 106 Q31 130 44 147 L116 147 Q129 130 115 106Z" fill="#d65e61"/>
+            <circle cx="37" cy="66" r="24" fill="#7b472f"/><circle cx="123" cy="66" r="24" fill="#7b472f"/><circle cx="37" cy="66" r="12" fill="#e6a77c"/><circle cx="123" cy="66" r="12" fill="#e6a77c"/>
+            <ellipse cx="80" cy="77" rx="52" ry="53" fill="#8c5438"/><path d="M38 71 Q29 17 80 23 Q132 18 122 71 Q106 46 80 49 Q53 46 38 71Z" fill="#3b2528"/>
+            <ellipse cx="80" cy="94" rx="37" ry="27" fill="#efc29a"/>
+            <ellipse cx="63" cy="76" rx="5" ry="7" fill="#211d1b"/><ellipse cx="97" cy="76" rx="5" ry="7" fill="#211d1b"/>
+            <path d="M69 105 Q80 115 92 104" fill="none" stroke="#85472f" stroke-width="3" stroke-linecap="round"/>
+            <path d="M37 48 Q80 28 123 48" fill="none" stroke="#ff806e" stroke-width="10"/><path d="M113 45 l13 -8" stroke="#ffd36e" stroke-width="5" stroke-linecap="round"/>
+            <path d="M51 121 L80 139 L109 121" fill="none" stroke="#d9ff72" stroke-width="5"/><circle cx="80" cy="139" r="6" fill="#fff0a6"/>
+            <path d="M30 111 l-10 -8 M130 111 l10 -8" stroke="#ffd36e" stroke-width="5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="name">Renata</div><div class="role">A fera do crossfit</div>
+        <p class="bio">CrossFit na veia, disciplina e energia de sobra. Se tem desafio, ela já está aquecida.</p>
+        <span class="tag">🏋️ CrossFit</span>
+      </article>
+      <article class="card" style="--glow:#d9ff72">
+        <div class="avatar">
+          <svg class="monkey" viewBox="0 0 160 160" role="img" aria-label="Macaco Jordano com halteres e caneca de chopp">
+            <ellipse cx="80" cy="143" rx="47" ry="9" fill="#001d25" opacity=".3"/>
+            <path d="M45 106 Q31 130 44 147 L116 147 Q129 130 115 106Z" fill="#639b55"/>
+            <circle cx="37" cy="66" r="24" fill="#89512f"/><circle cx="123" cy="66" r="24" fill="#89512f"/><circle cx="37" cy="66" r="12" fill="#e4a978"/><circle cx="123" cy="66" r="12" fill="#e4a978"/>
+            <ellipse cx="80" cy="77" rx="52" ry="53" fill="#98603a"/><ellipse cx="80" cy="94" rx="37" ry="27" fill="#eebd87"/>
+            <path d="M53 68 Q62 58 73 67 M87 67 Q98 58 107 68" fill="none" stroke="#39291e" stroke-width="5" stroke-linecap="round"/>
+            <ellipse cx="63" cy="78" rx="5" ry="7" fill="#211d1b"/><ellipse cx="97" cy="78" rx="5" ry="7" fill="#211d1b"/>
+            <ellipse cx="80" cy="94" rx="8" ry="6" fill="#593521"/><path d="M68 105 Q80 113 92 104" fill="none" stroke="#70432c" stroke-width="3" stroke-linecap="round"/>
+            <path d="M50 36 Q80 20 110 36" stroke="#d9ff72" stroke-width="8" fill="none" stroke-linecap="round"/>
+            <path d="M52 122 L80 139 L108 122" fill="none" stroke="#ffd36e" stroke-width="5"/><circle cx="80" cy="139" r="6" fill="#fff0a6"/>
+            <path d="M122 111 h18 v22 h-18z" fill="#f6d16d" stroke="#fff0bd" stroke-width="3"/><path d="M140 116 q13 0 7 10 q-3 5 -7 3" fill="none" stroke="#fff0bd" stroke-width="3"/><path d="M124 115 h14" stroke="#fff" stroke-width="4"/>
+          </svg>
+        </div>
+        <div class="name">Jordano</div><div class="role">Crossfit & chopp</div>
+        <p class="bio">CrossFit e chopp: treina pesado, mas também sabe valorizar um brinde depois do WOD.</p>
+        <span class="tag">🏋️ CROSSFIT + CHOPP 🍺</span>
+      </article>
+    </div>
+  </section>
+  <section class="manifesto">
+    <div><h3>O combinado está feito.</h3><p>31/12: reunir a tropa, pegar a estrada e deixar a areia testemunhar a história.</p></div>
+    <div class="stamp">🏖️</div>
+  </section>
+  <footer class="footer">FEITO PARA A TROPA · OS 4 MACACOS © 2026<br>Contagem regressiva local — mantenha este arquivo salvo no PC.</footer>
 </main>
+<div class="toast" id="toast">A tropa está oficialmente convocada! 🐒</div>
 <script>
-function tick(){const target=new Date(2026,11,31,0,0,0).getTime();let diff=Math.max(0,target-Date.now());const d=Math.floor(diff/86400000);diff%=86400000;const h=Math.floor(diff/3600000);diff%=3600000;const m=Math.floor(diff/60000);const s=Math.floor(diff%60000/1000);document.getElementById('days').textContent=String(d).padStart(3,'0');document.getElementById('hours').textContent=String(h).padStart(2,'0');document.getElementById('minutes').textContent=String(m).padStart(2,'0');document.getElementById('seconds').textContent=String(s).padStart(2,'0')}tick();setInterval(tick,1000);
+const target = new Date(2026, 11, 31, 0, 0, 0, 0); // início de 31/12/2026, à meia-noite no fuso local do navegador
+const $ = id => document.getElementById(id);
+$('targetText').textContent = new Intl.DateTimeFormat('pt-BR', {
+  day: '2-digit', month: 'long', year: 'numeric', hour: '2-digit', minute: '2-digit',
+  hourCycle: 'h23'
+}).format(target).replace(' às ', ' · ');
+function tick(){
+  const diff = target.getTime() - Date.now();
+  if(diff <= 0){
+    $('days').textContent='000';$('hours').textContent='00';$('minutes').textContent='00';$('seconds').textContent='00';
+    $('countMessage').innerHTML='<b>É HOJE!</b> A tropa está liberada para a missão praia. 🏖️';
+    return;
+  }
+  const d=Math.floor(diff/86400000),h=Math.floor(diff/3600000)%24,m=Math.floor(diff/60000)%60,s=Math.floor(diff/1000)%60;
+  $('days').textContent=String(d).padStart(3,'0');$('hours').textContent=String(h).padStart(2,'0');$('minutes').textContent=String(m).padStart(2,'0');$('seconds').textContent=String(s).padStart(2,'0');
+}
+tick();setInterval(tick,1000);
+let audioCtx=null, soundOn=false;
+$('soundBtn').addEventListener('click',()=>{
+ soundOn=!soundOn;$('soundBtn').textContent=soundOn?'🔊 Som: ligado':'🔇 Som: desligado';
+ if(soundOn){try{audioCtx=audioCtx||new(window.AudioContext||window.webkitAudioContext)();beep(660,.12);setTimeout(()=>beep(880,.15),150)}catch(e){}}
+});
+function beep(freq,dur){if(!audioCtx)return;const o=audioCtx.createOscillator(),g=audioCtx.createGain();o.frequency.value=freq;o.type='sine';g.gain.setValueAtTime(.0001,audioCtx.currentTime);g.gain.exponentialRampToValueAtTime(.07,audioCtx.currentTime+.02);g.gain.exponentialRampToValueAtTime(.0001,audioCtx.currentTime+dur);o.connect(g);g.connect(audioCtx.destination);o.start();o.stop(audioCtx.currentTime+dur)}
+$('partyBtn').addEventListener('click',()=>{
+ for(let i=0;i<75;i++){const c=document.createElement('i');c.className='confetti';c.style.left=Math.random()*100+'vw';c.style.background=['#d9ff72','#69e5d0','#ff806e','#ffd36e','#fff0bd'][i%5];c.style.animationDelay=Math.random()*.9+'s';c.style.transform='rotate('+Math.random()*360+'deg)';document.body.appendChild(c);setTimeout(()=>c.remove(),4300)}
+ $('toast').classList.add('show');setTimeout(()=>$('toast').classList.remove('show'),2300);
+ if(soundOn){beep(523,.12);setTimeout(()=>beep(659,.12),130);setTimeout(()=>beep(784,.2),260)}
+});
 </script>
 </body></html>
