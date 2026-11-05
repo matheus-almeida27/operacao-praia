@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#087f70">
+<title>Operação Praia 🏖️</title>
+<style>
+:root{--deep:#064e46;--teal:#087f70;--mint:#c9f4df;--sand:#fff0c8;--coral:#ff8068;--ink:#173b35}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;color:var(--ink);font-family:ui-rounded,"Trebuchet MS",system-ui,sans-serif;background:linear-gradient(145deg,#a8ead0 0%,#d8f5dc 38%,#ffe9b4 100%);overflow-x:hidden}
+body:before,body:after{content:"";position:fixed;border-radius:50%;filter:blur(2px);z-index:-1;opacity:.35}body:before{width:360px;height:360px;background:#fff;top:-170px;right:-90px}body:after{width:280px;height:280px;background:#ff9b79;bottom:-150px;left:-80px}
+.wrap{width:min(1050px,92vw);margin:auto;padding:42px 0 56px}.hero{text-align:center;padding:38px 22px 30px;background:#ffffffa8;border:1px solid #ffffffb8;border-radius:30px;box-shadow:0 18px 50px #246c5030;backdrop-filter:blur(8px)}
+.kicker{font-weight:900;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);font-size:.76rem}.hero h1{font-size:clamp(2.6rem,8vw,5.5rem);line-height:.98;margin:12px 0;color:var(--deep);letter-spacing:-.06em}.hero p{font-size:1.1rem;margin:14px auto 0;max-width:600px}
+.count-label{margin:28px 0 12px;font-size:.8rem;letter-spacing:.16em;font-weight:900;text-transform:uppercase;color:var(--teal)}
+.countdown{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;max-width:650px;margin:auto}.time{background:var(--deep);color:white;border-radius:18px;padding:17px 8px;box-shadow:0 8px 18px #064e4630}.time strong{display:block;font-size:clamp(1.8rem,5vw,3rem);line-height:1;font-variant-numeric:tabular-nums}.time span{font-size:.7rem;letter-spacing:.13em;text-transform:uppercase;color:#b9f2d8}
+.section-title{text-align:center;margin:42px 0 18px;color:var(--deep);font-size:1.7rem}.crew{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.card{background:#ffffffd9;border:1px solid #fff;border-radius:24px;padding:24px;box-shadow:0 12px 30px #246c5020;position:relative;overflow:hidden}.card:after{content:"";position:absolute;width:120px;height:120px;border-radius:50%;background:#c9f4df70;right:-45px;top:-48px}.avatar{font-size:3.3rem;line-height:1}.card h2{margin:10px 0 4px;color:var(--deep);font-size:1.5rem}.role{font-weight:900;color:var(--coral);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase}.card p{line-height:1.55;margin:12px 0 16px;max-width:42ch}.tag{display:inline-block;background:var(--mint);color:var(--deep);padding:8px 12px;border-radius:999px;font-size:.76rem;font-weight:900;letter-spacing:.03em}
+.footer{text-align:center;padding:30px 10px 0;font-weight:800;color:var(--deep)}.sun{font-size:1.4rem}
+@media(max-width:620px){.wrap{padding-top:18px}.hero{padding:30px 14px}.countdown{gap:7px}.time{padding:14px 4px;border-radius:13px}.time span{font-size:.58rem}.crew{grid-template-columns:1fr}.card{padding:22px}}
+</style>
+</head>
+<body>
+<main class="wrap">
+<section class="hero">
+<div class="kicker">Missão oficial • verão 2026</div>
+<h1>Operação<br>Praia <span>🏖️</span></h1>
+<p>Quatro macacos, um destino e a contagem regressiva para fechar o ano com os pés na areia.</p>
+<div class="count-label">Faltam para 31 de dezembro de 2026</div>
+<div class="countdown" aria-live="polite">
+<div class="time"><strong id="days">000</strong><span>Dias</span></div>
+<div class="time"><strong id="hours">00</strong><span>Horas</span></div>
+<div class="time"><strong id="minutes">00</strong><span>Minutos</span></div>
+<div class="time"><strong id="seconds">00</strong><span>Segundos</span></div>
+</div>
+</section>
+<h2 class="section-title">A tropa está formada 🐒</h2>
+<section class="crew">
+<article class="card"><div class="avatar">🐒</div><h2>Renata</h2><div class="role">A máquina do treino</div><p>CrossFit na veia e energia de sobra. Se tem desafio, ela já está aquecida.</p><span class="tag">🏋️ CROSSFIT</span></article>
+<article class="card"><div class="avatar">🐵</div><h2>Jordano</h2><div class="role">O atleta do brinde</div><p>CrossFit e chopp: treina pesado, mas também sabe valorizar um brinde depois do WOD.</p><span class="tag">🏋️ CROSSFIT + CHOPP 🍺</span></article>
+<article class="card"><div class="avatar">🙈</div><h2>Matheus</h2><div class="role">O tranquilão</div><p>Curte um cigarrinho natural e aproveitar os momentos no seu próprio ritmo.</p><span class="tag">🌿 VIBE NATURAL</span></article>
+<article class="card"><div class="avatar">🙉</div><h2>Léo</h2><div class="role">O último romântico</div><p>Gosta de fumar um cigarro e valorizar seus interesses amorosos.</p><span class="tag">🚬 AMOR &amp; SOSSEGO</span></article>
+</section>
+<div class="footer"><div class="sun">☀️ 🌴 🍹</div>O destino é a praia. O resto é história.</div>
+</main>
+<script>
+function tick(){const target=new Date(2026,11,31,0,0,0).getTime();let diff=Math.max(0,target-Date.now());const d=Math.floor(diff/86400000);diff%=86400000;const h=Math.floor(diff/3600000);diff%=3600000;const m=Math.floor(diff/60000);const s=Math.floor(diff%60000/1000);document.getElementById('days').textContent=String(d).padStart(3,'0');document.getElementById('hours').textContent=String(h).padStart(2,'0');document.getElementById('minutes').textContent=String(m).padStart(2,'0');document.getElementById('seconds').textContent=String(s).padStart(2,'0')}tick();setInterval(tick,1000);
+</script>
+</body></html>
